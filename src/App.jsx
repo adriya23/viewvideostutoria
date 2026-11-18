@@ -9,7 +9,9 @@ import { Icon } from './icons.jsx';
     &t=Título del video        -> (opcional) título que se muestra arriba
     &back=https://...          -> (opcional) a dónde lleva el botón "Volver"
 */
-const R2_BASE = (import.meta.env.VITE_R2_BASE_URL || '').replace(/\/+$/, '');
+// URL pública del bucket R2. Se puede sobrescribir con VITE_R2_BASE_URL al compilar.
+const DEFAULT_R2_BASE = 'https://pub-07c4fc929ad74e50ab5447efcfb73163.r2.dev';
+const R2_BASE = (import.meta.env.VITE_R2_BASE_URL || DEFAULT_R2_BASE).replace(/\/+$/, '');
 
 function readParams() {
   const params = new URLSearchParams(window.location.search);
